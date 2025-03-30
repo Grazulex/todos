@@ -24245,6 +24245,27 @@ namespace App\Livewire\Settings {
             }
     }
 
+namespace App\Livewire\Todo {
+    /**
+     * 
+     *
+     */
+    class Index {
+        /**
+         * 
+         *
+         * @see \Flux\FluxManager::bootModal()
+         * @param mixed $name
+         * @static 
+         */
+        public static function modal($name)
+        {
+            return \App\Livewire\Todo\Index::modal($name);
+        }
+
+            }
+    }
+
 namespace App\Livewire\Auth {
     /**
      * 
