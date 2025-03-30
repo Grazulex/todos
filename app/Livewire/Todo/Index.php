@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace App\Livewire\Todo;
 
 use App\Models\Todo;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 final class Index extends Component
 {
     use WithPagination;
-
 
     public function render(): View
     {
