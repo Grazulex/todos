@@ -16,6 +16,8 @@
         </x-slot:buttons>
     </x-page-heading>
 
+    <livewire:todo.edit />
+
     <div class="flex items-center justify-between w-full mb-6 gap-2">
         <flux:input wire:model.live="search" placeholder="{{ __('global.search_here') }}" class="!w-auto"/>
         <flux:spacer/>
@@ -48,17 +50,19 @@
                     </flux:table.cell>
                     <flux:table.cell variant="strong">
                         {{ $todo->title }}
-                        <flux:tooltip toggleable>
-                            <flux:button icon="information-circle" size="sm" variant="ghost" />
-                            <flux:tooltip.content class="max-w-[20rem] space-y-2 text-wrap">
-                                {{ $todo->description }}
-                            </flux:tooltip.content>
-                        </flux:tooltip>
+                        @if ($todo->description)
+                            <flux:tooltip toggleable>
+                                <flux:button icon="information-circle" size="sm" variant="ghost" />
+                                <flux:tooltip.content class="max-w-[20rem] space-y-2 text-wrap">
+                                    {{ $todo->description }}
+                                </flux:tooltip.content>
+                            </flux:tooltip>
+                        @endif
                     </flux:table.cell>
                     <flux:table.cell>
                         <flux:button.group>
-                            <flux:button size="sm" icon="pencil" />
-                            <flux:button size="sm" variant="danger" icon="trash" />
+                            <flux:button size="sm" icon="pencil" wire:click="edit({{ $todo->id }})" />
+                            <flux:button size="sm" variant="danger" icon="trash" wire:click="delete({{ $todo->id }})" />
                         </flux:button.group>
                     </flux:table.cell>
                 </flux:table.row>

@@ -21,4 +21,9 @@ return RectorConfig::configure()
         privatization: true,
         earlyReturn: true,
         strictBooleans: true
+    )
+    ->withSkip([
+        'app/Livewire/Todo/Create.php',
+        'app/Livewire/Todo/Edit.php',
+    ]
     );

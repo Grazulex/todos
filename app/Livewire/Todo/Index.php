@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Todo;
 
+use App\Actions\Todo\DestroyTodoAction;
 use App\Models\Todo;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\View\View;
@@ -59,5 +60,17 @@ final class Index extends Component
     public function render(): View
     {
         return view('livewire.todo.index', ['todos' => $this->todos()]);
+    }
+
+    public function delete(int $todo_id): void
+    {
+        new DestroyTodoAction()->handle(Auth::user(), $todo_id);
+
+        $this->dispatch('reload-todos');
+    }
+
+    public function edit(int $todo_id): void
+    {
+        $this->dispatch('edit-todo', $todo_id);
     }
 }
