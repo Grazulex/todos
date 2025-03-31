@@ -7,9 +7,12 @@
             {{ __('todis.title_description') }}
         </x-slot:subtitle>
         <x-slot:buttons>
-            <flux:button href="{{ route('todos.create') }}" variant="primary" icon="plus">
-                {{ __('todos.create_user') }}
-            </flux:button>
+            <flux:modal.trigger name="create-todo">
+                <flux:button variant="primary" icon="plus">
+                    {{ __('todos.create') }}
+                </flux:button>
+            </flux:modal.trigger>
+            <livewire:todo.create />
         </x-slot:buttons>
     </x-page-heading>
 
@@ -27,10 +30,11 @@
 
     <flux:table :paginate="$todos">
         <flux:table.columns>
-            <flux:table.column>ID</flux:table.column>
-            <flux:table.column>Date</flux:table.column>
-            <flux:table.column>Type</flux:table.column>
-            <flux:table.column>Title</flux:table.column>
+            <flux:table.column sortable :sorted="$sortBy === 'id'" :direction="$sortDirection" wire:click="sort('id')">ID</flux:table.column>
+            <flux:table.column sortable :sorted="$sortBy === 'created_at'" :direction="$sortDirection" wire:click="sort('created_at')">Date</flux:table.column>
+            <flux:table.column sortable :sorted="$sortBy === 'type'" :direction="$sortDirection" wire:click="sort('type')">Type</flux:table.column>
+            <flux:table.column sortable :sorted="$sortBy === 'title'" :direction="$sortDirection" wire:click="sort('title')">Title</flux:table.column>
+            <flux:table.column>Actions</flux:table.column>
         </flux:table.columns>
         <flux:table.rows>
             @foreach($todos as $todo)
@@ -50,6 +54,12 @@
                                 {{ $todo->description }}
                             </flux:tooltip.content>
                         </flux:tooltip>
+                    </flux:table.cell>
+                    <flux:table.cell>
+                        <flux:button.group>
+                            <flux:button size="sm" icon="pencil" />
+                            <flux:button size="sm" variant="danger" icon="trash" />
+                        </flux:button.group>
                     </flux:table.cell>
                 </flux:table.row>
             @endforeach

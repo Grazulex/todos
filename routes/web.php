@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function (): void {
 
     Route::get('todos', Index::class)->name('todos.index');
     Route::get('todos/create', Index::class)->name('todos.create');
+    Route::get('todos/edit/{id}', Index::class)->name('todos.edit');
 });
 
 require __DIR__.'/auth.php';
