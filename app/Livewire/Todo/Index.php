@@ -6,6 +6,7 @@ namespace App\Livewire\Todo;
 
 use App\Actions\Todo\DestroyTodoAction;
 use App\Models\Todo;
+use Flux\Flux;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
@@ -33,6 +34,8 @@ final class Index extends Component
     public string $sortBy = 'type';
 
     public string $sortDirection = 'desc';
+
+    public int $todo_id = 0;
 
     public function sort(string $column): void
     {
@@ -64,8 +67,17 @@ final class Index extends Component
 
     public function delete(int $todo_id): void
     {
-        new DestroyTodoAction()->handle(Auth::user(), $todo_id);
+        $this->todo_id = $todo_id;
+        Flux::modal('delete-todo')->show();
+    }
 
+    public function destroy(): void
+    {
+        new DestroyTodoAction()->handle(Auth::user(), $this->todo_id);
+        $this->todo_id = 0;
+
+        session()->flash('message', 'Todo deleted successfully.');
+        Flux::modal('delete-todo')->close();
         $this->dispatch('reload-todos');
     }
 
