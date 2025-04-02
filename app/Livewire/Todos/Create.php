@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Todo;
+namespace App\Livewire\Todos;
 
-use App\Actions\Todo\CreateTodoAction;
+use App\Actions\Todos\CreateTodoAction;
 use App\Enums\TypeTodoEnum;
-use App\Http\Requests\Todo\CreateTodoRequest;
+use App\Http\Requests\Todos\CreateTodoRequest;
 use Flux\Flux;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
@@ -21,7 +21,7 @@ final class Create extends Component
 
     public function render(): View
     {
-        return view('livewire.todo.create',
+        return view('livewire.todos.create',
             [
                 'types' => TypeTodoEnum::cases(),
             ]);
@@ -35,7 +35,7 @@ final class Create extends Component
 
         $this->reset(['title', 'description', 'type']);
 
-        session()->flash('message', 'Todo created successfully.');
+        Flux::toast(text: 'Todo created successfully.', heading: 'Todo created', variant: 'success');
 
         Flux::modal('create-todo')->close();
 

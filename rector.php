@@ -23,7 +23,7 @@ return RectorConfig::configure()
         strictBooleans: true
     )
     ->withSkip([
-        'app/Livewire/Todo/Create.php',
-        'app/Livewire/Todo/Edit.php',
+        'app/Livewire/Todos/Create.php',
+        'app/Livewire/Todos/Edit.php',
     ]
     );

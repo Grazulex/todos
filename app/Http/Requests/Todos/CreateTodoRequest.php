@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Todo;
+namespace App\Http\Requests\Todos;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-final class EditTodoRequest extends FormRequest
+final class CreateTodoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Todo;
+namespace App\Livewire\Todos;
 
-use App\Actions\Todo\UpdateTodoAction;
+use App\Actions\Todos\UpdateTodoAction;
 use App\Enums\TypeTodoEnum;
-use App\Http\Requests\Todo\EditTodoRequest;
+use App\Http\Requests\Todos\EditTodoRequest;
 use App\Models\Todo;
 use Flux\Flux;
 use Illuminate\Contracts\View\View;
@@ -26,7 +26,7 @@ final class Edit extends Component
 
     public function render(): View
     {
-        return view('livewire.todo.edit',
+        return view('livewire.todos.edit',
             [
                 'types' => TypeTodoEnum::cases(),
             ]);
@@ -60,7 +60,7 @@ final class Edit extends Component
 
         $this->reset(['title', 'description', 'type']);
 
-        session()->flash('message', 'Todo updated successfully.');
+        Flux::toast(text: 'Todo updated successfully.', heading: 'Todo updated', variant: 'success');
 
         Flux::modal('edit-todo')->close();
 

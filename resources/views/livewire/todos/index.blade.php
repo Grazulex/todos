@@ -12,11 +12,11 @@
                     {{ __('todos.create') }}
                 </flux:button>
             </flux:modal.trigger>
-            <livewire:todo.create />
+            <livewire:todos.create />
         </x-slot:buttons>
     </x-page-heading>
 
-    <livewire:todo.edit />
+    <livewire:todos.edit />
 
     <flux:modal name="delete-todo" class="min-w-[22rem]">
         <div class="space-y-6">

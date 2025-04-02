@@ -5,7 +5,7 @@ declare(strict_types=1);
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
-use App\Livewire\Todo\Index;
+use App\Livewire\Todos\Index;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {

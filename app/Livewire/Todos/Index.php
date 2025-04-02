@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Todo;
+namespace App\Livewire\Todos;
 
-use App\Actions\Todo\DestroyTodoAction;
+use App\Actions\Todos\DestroyTodoAction;
 use App\Models\Todo;
 use Flux\Flux;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -62,7 +62,7 @@ final class Index extends Component
 
     public function render(): View
     {
-        return view('livewire.todo.index', ['todos' => $this->todos()]);
+        return view('livewire.todos.index', ['todos' => $this->todos()]);
     }
 
     public function delete(int $todo_id): void
@@ -75,8 +75,7 @@ final class Index extends Component
     {
         new DestroyTodoAction()->handle(Auth::user(), $this->todo_id);
         $this->todo_id = 0;
-
-        session()->flash('message', 'Todo deleted successfully.');
+        Flux::toast(text: 'Todo deleted successfully.', heading: 'Todo deleted', variant: 'success');
         Flux::modal('delete-todo')->close();
         $this->dispatch('reload-todos');
     }
