@@ -37,6 +37,10 @@ jobs:
         run: vendor/bin/pint
 
       - name: Spelling
+        uses: reitermarkus/aspell@main
+        with:
+          files: ReadMe.md
+          args: --lang=en_GB --mode=markdown
         run: vendor/bin/peck
 
       - name: Type Coverage
