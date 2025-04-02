@@ -55,15 +55,10 @@ final class Edit extends Component
     public function update(UpdateTodoAction $action): void
     {
         $this->validate();
-
         $action->handle(auth()->user(), $this->todo_id, $this->toArray());
-
         $this->reset(['title', 'description', 'type']);
-
         Flux::toast(text: 'Todo updated successfully.', heading: 'Todo updated', variant: 'success');
-
         Flux::modal('edit-todo')->close();
-
         $this->dispatch('reload-todos');
     }
 

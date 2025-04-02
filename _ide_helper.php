@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 12.5.0.
+ * Generated for Laravel 12.6.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -6567,13 +6567,13 @@ namespace Illuminate\Support\Facades {
      * @method static \Illuminate\Support\Carbon|null create($year = 0, $month = 1, $day = 1, $hour = 0, $minute = 0, $second = 0, $timezone = null)
      * @method static \Illuminate\Support\Carbon createFromDate($year = null, $month = null, $day = null, $timezone = null)
      * @method static \Illuminate\Support\Carbon|null createFromFormat($format, $time, $timezone = null)
-     * @method static \Illuminate\Support\Carbon|null createFromIsoFormat(string $format, string $time, $timezone = null, ?string $locale = 'en', ?TranslatorInterface $translator = null)
+     * @method static \Illuminate\Support\Carbon|null createFromIsoFormat(string $format, string $time, $timezone = null, ?string $locale = 'en', ?\Symfony\Contracts\Translation\TranslatorInterface $translator = null)
      * @method static \Illuminate\Support\Carbon|null createFromLocaleFormat(string $format, string $locale, string $time, $timezone = null)
      * @method static \Illuminate\Support\Carbon|null createFromLocaleIsoFormat(string $format, string $locale, string $time, $timezone = null)
      * @method static \Illuminate\Support\Carbon createFromTime($hour = 0, $minute = 0, $second = 0, $timezone = null)
-     * @method static \Illuminate\Support\Carbon createFromTimeString(string $time, DateTimeZone|string|int|null $timezone = null)
-     * @method static \Illuminate\Support\Carbon createFromTimestamp(string|int|float $timestamp, DateTimeZone|string|int|null $timezone = null)
-     * @method static \Illuminate\Support\Carbon createFromTimestampMs(string|int|float $timestamp, DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon createFromTimeString(string $time, \DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon createFromTimestamp(string|int|float $timestamp, \DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon createFromTimestampMs(string|int|float $timestamp, \DateTimeZone|string|int|null $timezone = null)
      * @method static \Illuminate\Support\Carbon createFromTimestampMsUTC($timestamp)
      * @method static \Illuminate\Support\Carbon createFromTimestampUTC(string|int|float $timestamp)
      * @method static \Illuminate\Support\Carbon createMidnightDate($year = null, $month = null, $day = null, $timezone = null)
@@ -6594,7 +6594,7 @@ namespace Illuminate\Support\Facades {
      * @method static string getLocale()
      * @method static int getMidDayAt()
      * @method static string getTimeFormatByPrecision(string $unitPrecision)
-     * @method static string|Closure|null getTranslationMessageWith($translator, string $key, ?string $locale = null, ?string $default = null)
+     * @method static string|\Closure|null getTranslationMessageWith($translator, string $key, ?string $locale = null, ?string $default = null)
      * @method static \Illuminate\Support\Carbon|null getTestNow()
      * @method static \Symfony\Contracts\Translation\TranslatorInterface getTranslator()
      * @method static int getWeekEndsAt(?string $locale = null)
@@ -6605,7 +6605,7 @@ namespace Illuminate\Support\Facades {
      * @method static bool hasMacro($name)
      * @method static bool hasRelativeKeywords(?string $time)
      * @method static bool hasTestNow()
-     * @method static \Illuminate\Support\Carbon instance(DateTimeInterface $date)
+     * @method static \Illuminate\Support\Carbon instance(\DateTimeInterface $date)
      * @method static bool isImmutable()
      * @method static bool isModifiableUnit($unit)
      * @method static bool isMutable()
@@ -6616,14 +6616,14 @@ namespace Illuminate\Support\Facades {
      * @method static bool localeHasPeriodSyntax($locale)
      * @method static bool localeHasShortUnits(string $locale)
      * @method static void macro(string $name, ?callable $macro)
-     * @method static \Illuminate\Support\Carbon|null make($var, DateTimeZone|string|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon|null make($var, \DateTimeZone|string|null $timezone = null)
      * @method static void mixin(object|string $mixin)
-     * @method static \Illuminate\Support\Carbon now(DateTimeZone|string|int|null $timezone = null)
-     * @method static \Illuminate\Support\Carbon parse(DateTimeInterface|WeekDay|Month|string|int|float|null $time, DateTimeZone|string|int|null $timezone = null)
-     * @method static \Illuminate\Support\Carbon parseFromLocale(string $time, ?string $locale = null, DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon now(\DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon parse(\DateTimeInterface|\Carbon\WeekDay|\Carbon\Month|string|int|float|null $time, \DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon parseFromLocale(string $time, ?string $locale = null, \DateTimeZone|string|int|null $timezone = null)
      * @method static string pluralUnit(string $unit)
      * @method static \Illuminate\Support\Carbon|null rawCreateFromFormat(string $format, string $time, $timezone = null)
-     * @method static \Illuminate\Support\Carbon rawParse(DateTimeInterface|WeekDay|Month|string|int|float|null $time, DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon rawParse(\DateTimeInterface|\Carbon\WeekDay|\Carbon\Month|string|int|float|null $time, \DateTimeZone|string|int|null $timezone = null)
      * @method static void resetMonthsOverflow()
      * @method static void resetToStringFormat()
      * @method static void resetYearsOverflow()
@@ -6634,7 +6634,7 @@ namespace Illuminate\Support\Facades {
      * @method static void setMidDayAt($hour)
      * @method static void setTestNow(mixed $testNow = null)
      * @method static void setTestNowAndTimezone(mixed $testNow = null, $timezone = null)
-     * @method static void setToStringFormat(string|Closure|null $format)
+     * @method static void setToStringFormat(string|\Closure|null $format)
      * @method static void setTranslator(\Symfony\Contracts\Translation\TranslatorInterface $translator)
      * @method static void setWeekEndsAt($day)
      * @method static void setWeekStartsAt($day)
@@ -6643,16 +6643,16 @@ namespace Illuminate\Support\Facades {
      * @method static bool shouldOverflowYears()
      * @method static string singularUnit(string $unit)
      * @method static void sleep(int|float $seconds)
-     * @method static \Illuminate\Support\Carbon today(DateTimeZone|string|int|null $timezone = null)
-     * @method static \Illuminate\Support\Carbon tomorrow(DateTimeZone|string|int|null $timezone = null)
-     * @method static string translateTimeString(string $timeString, ?string $from = null, ?string $to = null, int $mode = CarbonInterface::TRANSLATE_ALL)
-     * @method static string translateWith(TranslatorInterface $translator, string $key, array $parameters = [], $number = null)
+     * @method static \Illuminate\Support\Carbon today(\DateTimeZone|string|int|null $timezone = null)
+     * @method static \Illuminate\Support\Carbon tomorrow(\DateTimeZone|string|int|null $timezone = null)
+     * @method static string translateTimeString(string $timeString, ?string $from = null, ?string $to = null, int $mode = \Carbon\CarbonInterface::TRANSLATE_ALL)
+     * @method static string translateWith(\Symfony\Contracts\Translation\TranslatorInterface $translator, string $key, array $parameters = [], $number = null)
      * @method static void useMonthsOverflow($monthsOverflow = true)
      * @method static void useStrictMode($strictModeEnabled = true)
      * @method static void useYearsOverflow($yearsOverflow = true)
      * @method static mixed withTestNow(mixed $testNow, callable $callback)
-     * @method static static withTimeZone(DateTimeZone|string|int|null $timezone)
-     * @method static \Illuminate\Support\Carbon yesterday(DateTimeZone|string|int|null $timezone = null)
+     * @method static static withTimeZone(\DateTimeZone|string|int|null $timezone)
+     * @method static \Illuminate\Support\Carbon yesterday(\DateTimeZone|string|int|null $timezone = null)
      * @see \Illuminate\Support\DateFactory
      */
     class Date {
@@ -10024,6 +10024,34 @@ namespace Illuminate\Support\Facades {
         public static function response($body = null, $status = 200, $headers = [])
         {
             return \Illuminate\Http\Client\Factory::response($body, $status, $headers);
+        }
+
+        /**
+         * Create a new PSR-7 response instance for use during stubbing.
+         *
+         * @param array|string|null $body
+         * @param int $status
+         * @param array<string, mixed> $headers
+         * @return \GuzzleHttp\Psr7\Response 
+         * @static 
+         */
+        public static function psr7Response($body = null, $status = 200, $headers = [])
+        {
+            return \Illuminate\Http\Client\Factory::psr7Response($body, $status, $headers);
+        }
+
+        /**
+         * Create a new RequestException instance for use during stubbing.
+         *
+         * @param array|string|null $body
+         * @param int $status
+         * @param array<string, mixed> $headers
+         * @return \Illuminate\Http\Client\RequestException 
+         * @static 
+         */
+        public static function requestException($body = null, $status = 200, $headers = [])
+        {
+            return \Illuminate\Http\Client\Factory::requestException($body, $status, $headers);
         }
 
         /**
@@ -24624,6 +24652,58 @@ namespace  {
         }
 
         /**
+         * Insert into the database after merging the model's default attributes, setting timestamps, and casting values.
+         *
+         * @param array<int, array<string, mixed>> $values
+         * @return bool 
+         * @static 
+         */
+        public static function fillAndInsert($values)
+        {
+            /** @var \Illuminate\Database\Eloquent\Builder $instance */
+            return $instance->fillAndInsert($values);
+        }
+
+        /**
+         * Insert (ignoring errors) into the database after merging the model's default attributes, setting timestamps, and casting values.
+         *
+         * @param array<int, array<string, mixed>> $values
+         * @return int 
+         * @static 
+         */
+        public static function fillAndInsertOrIgnore($values)
+        {
+            /** @var \Illuminate\Database\Eloquent\Builder $instance */
+            return $instance->fillAndInsertOrIgnore($values);
+        }
+
+        /**
+         * Insert a record into the database and get its ID after merging the model's default attributes, setting timestamps, and casting values.
+         *
+         * @param array<string, mixed> $values
+         * @return int 
+         * @static 
+         */
+        public static function fillAndInsertGetId($values)
+        {
+            /** @var \Illuminate\Database\Eloquent\Builder $instance */
+            return $instance->fillAndInsertGetId($values);
+        }
+
+        /**
+         * Enrich the given values by merging in the model's default attributes, adding timestamps, and casting values.
+         *
+         * @param array<int, array<string, mixed>> $values
+         * @return array<int, array<string, mixed>> 
+         * @static 
+         */
+        public static function fillForInsert($values)
+        {
+            /** @var \Illuminate\Database\Eloquent\Builder $instance */
+            return $instance->fillForInsert($values);
+        }
+
+        /**
          * Create a collection of models from a raw query.
          *
          * @param string $query
@@ -29090,6 +29170,11 @@ namespace  {
 }
 
 
+namespace Facades\Livewire\Features\SupportFileUploads {
+    /**
+     * @mixin \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl     */
+    class GenerateSignedUploadUrl extends \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl {}
+}
 
 
 
