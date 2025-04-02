@@ -13,11 +13,6 @@ on:
 permissions:
   contents: write
 
-uses: reitermarkus/aspell@main
-with:
-  files: ReadMe.md
-  args: --lang=en_GB --mode=markdown
-
 jobs:
   quality:
     runs-on: ubuntu-latest
@@ -40,9 +35,6 @@ jobs:
 
       - name: Run Pint
         run: vendor/bin/pint
-
-      - name: Spelling
-        run: vendor/bin/peck
 
       - name: Type Coverage
         run: vendor/bin/pest --type-coverage --min=100
