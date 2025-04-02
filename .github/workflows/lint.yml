@@ -36,6 +36,9 @@ jobs:
       - name: Run Pint
         run: vendor/bin/pint
 
+      - name: Spelling
+        run: vendor/bin/peck
+
       - name: Type Coverage
         run: vendor/bin/pest --type-coverage --min=100
 
