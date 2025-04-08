@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Actions\Todos\CreateTodoAction;
+use App\Enums\TypeTodoEnum;
 use App\Models\User;
 
 test('can create new todo', function (): void {
@@ -11,7 +12,11 @@ test('can create new todo', function (): void {
 
     $action = new CreateTodoAction();
 
-    $attributes = [];
+    $attributes = [
+        'title' => 'test',
+        'description' => 'test',
+        'type' => TypeTodoEnum::NORMAL,
+    ];
 
     $todo = $action->handle($user, $attributes);
 });
