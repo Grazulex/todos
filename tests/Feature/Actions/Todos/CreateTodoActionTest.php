@@ -19,4 +19,8 @@ test('can create new todo', function (): void {
     ];
 
     $todo = $action->handle($user, $attributes);
+
+    expect($todo->title)->toBe($attributes['title']);
+    expect($todo->description)->toBe($attributes['description']);
+    expect($todo->type)->toBe($attributes['type']);
 });
