@@ -10,7 +10,7 @@ test('can create new todo', function (): void {
     $user = User::factory()->create();
     $this->actingAs($user);
 
-    $action = new CreateTodoAction();
+    $action = app(CreateTodoAction::class);
 
     $attributes = [
         'title' => 'test',
