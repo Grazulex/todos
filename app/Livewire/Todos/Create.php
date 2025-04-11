@@ -9,6 +9,7 @@ use App\Enums\TypeTodoEnum;
 use App\Http\Requests\Todos\CreateTodoRequest;
 use Flux\Flux;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 final class Create extends Component
@@ -30,7 +31,7 @@ final class Create extends Component
     public function create(CreateTodoAction $action): void
     {
         $this->validate();
-        $action->handle(auth()->user(), $this->toArray());
+        $action->handle(Auth::user(), $this->toArray());
         $this->reset(['title', 'description', 'type']);
         Flux::toast(text: 'Todo created successfully.', heading: 'Todo created', variant: 'success');
         Flux::modal('create-todo')->close();

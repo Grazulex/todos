@@ -10,6 +10,7 @@ use App\Http\Requests\Todos\EditTodoRequest;
 use App\Models\Todo;
 use Flux\Flux;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Throwable;
@@ -36,7 +37,7 @@ final class Edit extends Component
     public function edit(int $todo_id): void
     {
         $todo = Todo::where([
-            'user_id' => auth()->user()->id,
+            'user_id' => Auth::user()->id,
             'id' => $todo_id,
         ]
         )->firstOrFail();
@@ -55,7 +56,7 @@ final class Edit extends Component
     public function update(UpdateTodoAction $action): void
     {
         $this->validate();
-        $action->handle(auth()->user(), $this->todo_id, $this->toArray());
+        $action->handle(Auth::user(), $this->todo_id, $this->toArray());
         $this->reset(['title', 'description', 'type']);
         Flux::toast(text: 'Todo updated successfully.', heading: 'Todo updated', variant: 'success');
         Flux::modal('edit-todo')->close();
