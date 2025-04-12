@@ -42,7 +42,10 @@ jobs:
 
       - name: 📦 Install Node dependencies
         run: npm ci
-
+        
+      - name: 🔐 Configure Composer credentials
+        run: composer config http-basic.composer.fluxui.dev "${{ secrets.FLUX_USERNAME }}" "${{ secrets.FLUX_LICENSE_KEY }}"
+        
       - name: ✅ Validate Composer config
         run: composer validate --strict
 
