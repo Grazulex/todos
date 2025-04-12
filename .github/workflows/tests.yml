@@ -26,6 +26,9 @@ jobs:
         php-version: ${{ matrix.php }}
         extensions: dom, mbstring, zip, fileinfo
         coverage: none
+        
+    - name: Add Flux Credentials Loaded From ENV
+      run: composer config http-basic.composer.fluxui.dev "${{ secrets.FLUX_USERNAME }}" "${{ secrets.FLUX_LICENSE_KEY }}"
 
     - name: Get Composer cache directory
       id: composer-cache
