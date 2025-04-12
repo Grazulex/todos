@@ -1,4 +1,4 @@
-ame: Formats
+name: Formats
 
 on: ['push', 'pull_request']
 
