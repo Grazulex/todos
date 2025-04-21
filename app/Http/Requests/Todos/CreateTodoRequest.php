@@ -26,7 +26,7 @@ final class CreateTodoRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
-            'type' => 'required|in:normal,important,urgent',
+            // 'type' => 'required|in:'.new TypeTodoEnum(),
         ];
     }
 }
