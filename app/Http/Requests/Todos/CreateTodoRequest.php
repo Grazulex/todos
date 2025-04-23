@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Todos;
 
+use App\Enums\TypeTodoEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Enum;
 
 final class CreateTodoRequest extends FormRequest
 {
@@ -26,7 +28,7 @@ final class CreateTodoRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
-            // 'type' => 'required|in:'.new TypeTodoEnum(),
+            'type' => ['required', new Enum(TypeTodoEnum::class)],
         ];
     }
 }

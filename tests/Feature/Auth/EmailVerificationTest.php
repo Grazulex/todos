@@ -47,3 +47,25 @@ test('email is not verified with invalid hash', function (): void {
 
     expect($user->fresh()->hasVerifiedEmail())->toBeFalse();
 });
+
+test('already verified email redirects without re-verifying', function (): void {
+    // Create a user with a verified email
+    $user = User::factory()->create(['email_verified_at' => now()]);
+
+    // Fake events to verify none are dispatched
+    Event::fake();
+
+    $verificationUrl = URL::temporarySignedRoute(
+        'verification.verify',
+        now()->addMinutes(60),
+        ['id' => $user->id, 'hash' => sha1($user->email)]
+    );
+
+    $response = $this->actingAs($user)->get($verificationUrl);
+
+    // Verify that no Verified event was dispatched
+    Event::assertNotDispatched(Verified::class);
+
+    // Verify that the user is redirected to dashboard with verified=1
+    $response->assertRedirect(route('dashboard', absolute: false).'?verified=1');
+});
